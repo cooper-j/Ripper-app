@@ -1,4 +1,4 @@
-package com.keakr.ripper
+package com.hexan.ripper
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
-        assertEquals("com.keakr.ripper", appContext.packageName)
+        assertEquals("com.hexan.ripper", appContext.packageName)
     }
 }

@@ -1,4 +1,4 @@
-package com.keakr.ripper
+package com.hexan.ripper
 
 import org.junit.Test
 
