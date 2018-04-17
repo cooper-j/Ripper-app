@@ -27,7 +27,7 @@ class SharedPreferenceManager {
                     "SharedPreferences not correctly instantiated.")
         }
 
-        fun saveAccessToken(accessToken: String) {
+        fun saveAccessToken(accessToken: String?) {
             getPreferences().edit().putString(PREFS_ACCESS_TOKEN, accessToken).apply()
         }
 

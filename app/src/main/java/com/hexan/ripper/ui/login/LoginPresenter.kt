@@ -13,7 +13,7 @@ import okhttp3.Credentials
  */
 class LoginPresenter : BasePresenter<LoginMvpView>() {
 
-    val ripperApiService: RipperApiService = RipperApiService.create()
+    val ripperApiService: RipperApiService by lazy { RipperApiService.create() }
 
     private var loginSubscribe: Disposable? = null
 
