@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import com.hexan.ripper.R
 import com.hexan.ripper.model.Song
 import com.hexan.ripper.module.GlideApp
-import kotlinx.android.synthetic.main.item_playlist.view.*
 import kotlinx.android.synthetic.main.item_song.view.*
 
 /**

@@ -1,7 +1,6 @@
 package com.hexan.ripper.ui.main.playlist
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.view.ViewGroup
@@ -14,6 +13,7 @@ import com.hexan.ripper.ui.GridLayoutDivider
 import com.hexan.ripper.ui.login.PlaylistMvpView
 import com.hexan.ripper.ui.login.PlaylistPresenter
 import com.hexan.ripper.ui.main.BaseFragment
+import com.hexan.ripper.ui.main.MainActivity
 import com.hexan.ripper.ui.main.songlist.SonglistFragment
 import kotlinx.android.synthetic.main.fragment_playlist.*
 import kotlinx.android.synthetic.main.fragment_playlist.view.*
@@ -88,17 +88,12 @@ class PlaylistFragment : BaseFragment(), PlaylistMvpView, View.OnClickListener, 
     }
 
     override fun onPlaylistClick(playlist: Playlist) {
-        createPlaylistFabButton.visibility = View.GONE
-        val songlistFragment = SonglistFragment.newInstance(playlist.id!!, playlist.name)
-        childFragmentManager.beginTransaction()
-                ?.add(R.id.childFragmentLayout, songlistFragment, SonglistFragment::class.java.name)
-                ?.addToBackStack(SonglistFragment::class.java.name)
-                        ?.commit()
+        (activity as MainActivity)
+                .addFragment(SonglistFragment.newInstance(playlist.id!!, playlist.name), SonglistFragment::class.java.name)
     }
 
     override fun onResume() {
         super.onResume()
-        createPlaylistFabButton.visibility = View.VISIBLE
         setTitle(R.string.title_playlists)
     }
 }

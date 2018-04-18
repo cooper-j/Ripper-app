@@ -1,6 +1,7 @@
 package com.hexan.ripper.ui.main.songlist
 
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,9 @@ import com.hexan.ripper.model.Song
 import com.hexan.ripper.ui.main.BaseFragment
 import kotlinx.android.synthetic.main.fragment_songlist.*
 import kotlinx.android.synthetic.main.fragment_songlist.view.*
+import android.support.v7.widget.DividerItemDecoration
+
+
 
 /**
  * Created by James Cooper on 11/04/2018.
@@ -50,7 +54,10 @@ class SonglistFragment : BaseFragment(), SonglistMvpView {
         view.songlistRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         view.songlistRecyclerView.adapter = songlistAdapter
 
-        //view.songlistRecyclerView.addItemDecoration(GridLayoutDivider(resources.getDimensionPixelSize(R.dimen.grid_spacing), 2))
+        val itemDecorator = DividerItemDecoration(context, LinearLayoutManager.VERTICAL)
+        context?.let { ContextCompat.getDrawable(it, R.drawable.song_divider)?.let { itemDecorator.setDrawable(it) } }
+        view.songlistRecyclerView.addItemDecoration(itemDecorator)
+
 
         view.songlistSwipeRefreshLayout.setOnRefreshListener {
             songlistSwipeRefreshLayout.isRefreshing = true
