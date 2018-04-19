@@ -47,6 +47,7 @@ interface OnPlaylistClickListener {
 class PlaylistViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     fun bind(playlist: Playlist, onPlaylistClickListener: OnPlaylistClickListener) {
         itemView.playlistNameTextView.text = playlist.name
+        itemView.songCountTextView.text = playlist.songs?.size.toString() + " songs"
         itemView.setOnClickListener { onPlaylistClickListener.onPlaylistClick(playlist) }
         if (playlist.songs?.isEmpty()!!)
             itemView.playlistItemImageView.setImageResource(R.drawable.default_album_cover)

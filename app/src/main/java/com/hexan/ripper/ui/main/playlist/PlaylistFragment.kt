@@ -92,8 +92,7 @@ class PlaylistFragment : BaseFragment(), PlaylistMvpView, View.OnClickListener, 
                 .addFragment(SonglistFragment.newInstance(playlist.id!!, playlist.name), SonglistFragment::class.java.name)
     }
 
-    override fun onResume() {
-        super.onResume()
+    override fun onResumeVisible(){
         setTitle(R.string.title_playlists)
     }
 }

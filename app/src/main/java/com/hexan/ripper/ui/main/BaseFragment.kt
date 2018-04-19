@@ -12,4 +12,6 @@ abstract class BaseFragment: Fragment() {
     fun setTitle(titleRessourceId: Int) {
         (activity as MainActivity).setPageTitle(titleRessourceId)
     }
+
+    open fun onResumeVisible(){}
 }
